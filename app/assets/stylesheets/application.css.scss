@@ -11,3 +11,21 @@
  *= require_self
  *= require_tree .
 */
+
+table {
+  width: 100%;
+
+  .header {
+    background-color: blue;
+    color: white;
+    th {
+      padding: 11px;
+    }
+  }
+  .even {
+    background-color: #bfbfbf;
+  }
+  td {
+    padding:10px;
+  }
+}

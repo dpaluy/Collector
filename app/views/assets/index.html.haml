@@ -1,0 +1,22 @@
+- title "Assets"
+
+%table
+  %tr.header
+    %th Name
+    %th Sign
+    %th Note
+    %th
+
+  - @assets.each do |asset|
+    %tr{:class => cycle('odd', 'even')} 
+      %td= link_to asset.name, asset
+      %td= asset.sign
+      %td= asset.note
+      %td
+        = link_to 'Edit', edit_asset_path(asset)
+        |
+        = link_to 'Destroy', asset, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Asset', new_asset_path

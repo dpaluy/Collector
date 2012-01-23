@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Asset:
+  = @option.asset_id
+%p
+  %b Option type:
+  = @option.option_type
+%p
+  %b Expiration:
+  = @option.expiration
+%p
+  %b Strike:
+  = @option.strike
+
+= link_to 'Edit', edit_option_path(@option)
+\|
+= link_to 'Back', options_path

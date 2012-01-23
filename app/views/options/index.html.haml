@@ -1,0 +1,24 @@
+%h1 Listing options
+
+%table
+  %tr.header
+    %th Asset
+    %th Option type
+    %th Expiration
+    %th Strike
+    %th
+
+  - @options.each do |option|
+    %tr{:class => cycle('odd', 'even')} 
+      %td= link_to option.asset_id, option
+      %td= option.option_type
+      %td= option.expiration
+      %td= option.strike
+      %td
+        = link_to 'Edit', edit_option_path(option)
+        |
+        = link_to 'Destroy', option, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Option', new_option_path

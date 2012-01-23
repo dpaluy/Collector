@@ -1,0 +1,12 @@
+- title @asset.name
+
+%p
+  %b Sign:
+  = @asset.sign
+%p
+  %b Note:
+  = @asset.note
+
+= link_to 'Edit', edit_asset_path(@asset)
+\|
+= link_to 'Back', assets_path
