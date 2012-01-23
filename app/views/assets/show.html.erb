@@ -1,0 +1,20 @@
+<% title "Asset" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @asset.name %>
+</p>
+<p>
+  <strong>Sign:</strong>
+  <%= @asset.sign %>
+</p>
+<p>
+  <strong>Note:</strong>
+  <%= @asset.note %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_asset_path(@asset) %> |
+  <%= link_to "Destroy", @asset, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", assets_path %>
+</p>
