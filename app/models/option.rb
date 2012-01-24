@@ -7,7 +7,7 @@ class Option
   field :strike, :type => Integer
   
   embedded_in :asset
-#  embeds_many :option_values
+  embeds_many :option_values
   
   def is_call?
     option_type == true  

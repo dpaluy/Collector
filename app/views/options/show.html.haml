@@ -1,5 +1,7 @@
 - title @option.to_s
 
+= link_to 'Values', asset_option_option_values_path(@asset, @option)
+\|
 = link_to 'Edit', edit_asset_option_path(@asset, @option)
 \|
 = link_to 'Back', asset_options_path(@asset)

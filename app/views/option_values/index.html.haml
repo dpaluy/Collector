@@ -1,0 +1,18 @@
+-title "Option Values"
+
+%table
+  %tr.header
+    %th Price
+    %th Timestamp
+    %th
+
+  - @option_values.each do |option_value|
+    %tr{:class => cycle('odd', 'even')}
+      - price = Money.new(option_value.price, @asset.currency)
+      %td= pretty_money(price)
+      %td= option_value.timestamp
+      %td= link_to 'Destroy', [@asset, @option, option_value], :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Option value', new_asset_option_option_value_path

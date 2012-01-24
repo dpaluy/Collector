@@ -1,0 +1,9 @@
+= simple_form_for [@asset, @option, @option_value] do |f|
+  = f.error_notification
+
+  .inputs
+    = f.input :price, :label => "Price (#{Money::Currency::TABLE[@asset.currency.downcase.to_sym][:symbol]})"
+    = f.input :timestamp, :as => :datetime
+
+  .actions
+    = f.button :submit

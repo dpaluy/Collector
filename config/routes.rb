@@ -1,7 +1,9 @@
 Collector::Application.routes.draw do
 
   resources :assets do
-    resources :options
+    resources :options do
+      resources :option_values
+    end
     resources :values
   end
 
