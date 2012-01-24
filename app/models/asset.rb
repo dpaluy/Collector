@@ -20,4 +20,5 @@ class Asset
   key :sign
   
   embeds_many :options
+  embeds_many :values
 end

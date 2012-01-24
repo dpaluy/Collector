@@ -1,0 +1,20 @@
+- title "Asset Values"
+
+%table
+  %tr.header
+    %th Price
+    %th Timestamp
+    %th
+
+  - @values.each do |value|
+    %tr{:class => cycle('odd', 'even')} 
+      - price = Money.new(value.price, @asset.currency)
+      %td= pretty_money(price)
+      %td= value.timestamp
+      %td= link_to 'Destroy', [@asset, value], :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Value', new_asset_value_path
+|
+= link_to 'Asset', asset_path(@asset)
