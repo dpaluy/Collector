@@ -6,7 +6,7 @@ describe AssetsController do
   # Asset. As you add validations to Asset, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {:name => "SP500", :sign => "SPY"}
+    {:name => "SP500", :sign => "SPY", :strike_min => 1, :strike_max => 100, :strike_step => 1}
   end
   
   # This should return the minimal set of values that should be in the session

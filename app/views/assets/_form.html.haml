@@ -1,19 +1,14 @@
-= form_for @asset do |f|
-  -if @asset.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@asset.errors.count, "error")} prohibited this asset from being saved:"
-      %ul
-        - @asset.errors.full_messages.each do |msg|
-          %li= msg
+= simple_form_for @asset do |f|
+  = f.error_notification
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :sign
-    = f.text_field :sign
-  .field
-    = f.label :note
-    = f.text_area :note
+  .inputs
+    = f.input :name
+    = f.input :sign
+    = f.input :note
+    = f.input :strike_min
+    = f.input :strike_max
+    = f.input :strike_step
+    = f.input :currency, :collection => Money::Currency::TABLE.to_a.map {|c| c[0].to_s.upcase }
+    
   .actions
-    = f.submit 'Save'
+    = f.button :submit

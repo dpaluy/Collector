@@ -1,22 +1,10 @@
-= form_for @option do |f|
-  -if @option.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@option.errors.count, "error")} prohibited this option from being saved:"
-      %ul
-        - @option.errors.full_messages.each do |msg|
-          %li= msg
+= simple_form_for [@asset, @option] do |f|
+  = f.error_notification
 
-  .field
-    = f.label :asset_id
-    = f.number_field :asset_id
-  .field
-    = f.label :option_type
-    = f.text_field :option_type
-  .field
-    = f.label :expiration
-    = f.date_select :expiration
-  .field
-    = f.label :strike
-    = f.number_field :strike
+  .inputs
+    = f.input :option_type, :label => "CALL/PUT", :collection => [["CALL", true], ["PUT", false]], :prompt => "Select Option Type"
+    = f.input :strike, :collection => (@asset.strike_min..@asset.strike_max).step(@asset.strike_step), :prompt => "Select strike"
+    = f.input :expiration, :as => :date, :order => [:day, :month, :year]
+    
   .actions
-    = f.submit 'Save'
+    = f.button :submit

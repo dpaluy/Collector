@@ -1,8 +1,12 @@
 class OptionsController < ApplicationController
+  
+  before_filter :get_asset
+  
   # GET /options
   # GET /options.json
   def index
-    @options = Option.all
+    
+    @options = @asset.options
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +17,7 @@ class OptionsController < ApplicationController
   # GET /options/1
   # GET /options/1.json
   def show
-    @option = Option.find(params[:id])
+    @option = @asset.options.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +28,7 @@ class OptionsController < ApplicationController
   # GET /options/new
   # GET /options/new.json
   def new
-    @option = Option.new
+    @option = @asset.options.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,17 +38,17 @@ class OptionsController < ApplicationController
 
   # GET /options/1/edit
   def edit
-    @option = Option.find(params[:id])
+    @option = @asset.options.find(params[:id])
   end
 
   # POST /options
   # POST /options.json
   def create
-    @option = Option.new(params[:option])
+    @option = @asset.options.new(params[:option])
 
     respond_to do |format|
       if @option.save
-        format.html { redirect_to @option, notice: 'Option was successfully created.' }
+        format.html { redirect_to [@asset, @option], notice: 'Option was successfully created.' }
         format.json { render json: @option, status: :created, location: @option }
       else
         format.html { render action: "new" }
@@ -56,11 +60,11 @@ class OptionsController < ApplicationController
   # PUT /options/1
   # PUT /options/1.json
   def update
-    @option = Option.find(params[:id])
+    @option = @asset.options.find(params[:id])
 
     respond_to do |format|
       if @option.update_attributes(params[:option])
-        format.html { redirect_to @option, notice: 'Option was successfully updated.' }
+        format.html { redirect_to [@asset, @option], notice: 'Option was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -72,12 +76,18 @@ class OptionsController < ApplicationController
   # DELETE /options/1
   # DELETE /options/1.json
   def destroy
-    @option = Option.find(params[:id])
+    @option = @asset.options.find(params[:id])
     @option.destroy
 
     respond_to do |format|
-      format.html { redirect_to options_url }
+      format.html { redirect_to asset_options_url }
       format.json { head :no_content }
     end
+  end
+  
+  private
+  
+  def get_asset
+    @asset = Asset.find(params[:asset_id])
   end
 end

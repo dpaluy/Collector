@@ -7,6 +7,16 @@
   %b Note:
   = @asset.note
 
+%p
+  %b Strike Range:
+  = strike_range @asset
+
+%p
+  %b Currency:
+  = @asset.currency
+  
+= link_to 'Options', asset_options_path(@asset)
+\|
 = link_to 'Edit', edit_asset_path(@asset)
 \|
 = link_to 'Back', assets_path

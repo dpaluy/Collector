@@ -1,7 +1,7 @@
 Collector::Application.routes.draw do
-  resources :options
-
-  resources :assets
+  resources :assets do
+    resources :options
+  end
 
   root :to => 'assets#index'
 

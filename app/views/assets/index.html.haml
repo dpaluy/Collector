@@ -5,6 +5,10 @@
     %th Name
     %th Sign
     %th Note
+    %th Strike Min
+    %th Strike Max
+    %th Strike Step   
+    %th Currency 
     %th
 
   - @assets.each do |asset|
@@ -12,6 +16,10 @@
       %td= link_to asset.name, asset
       %td= asset.sign
       %td= asset.note
+      %td= asset.strike_min
+      %td= asset.strike_max
+      %td= asset.strike_step
+      %td= asset.currency                  
       %td
         = link_to 'Edit', edit_asset_path(asset)
         |

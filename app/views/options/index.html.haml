@@ -2,23 +2,17 @@
 
 %table
   %tr.header
-    %th Asset
-    %th Option type
-    %th Expiration
-    %th Strike
+    %th Option
     %th
 
   - @options.each do |option|
     %tr{:class => cycle('odd', 'even')} 
-      %td= link_to option.asset_id, option
-      %td= option.option_type
-      %td= option.expiration
-      %td= option.strike
+      %td= link_to option.to_s, asset_option_path(@asset, option)
       %td
-        = link_to 'Edit', edit_option_path(option)
+        = link_to 'Edit', edit_asset_option_path(@asset, option)
         |
-        = link_to 'Destroy', option, :confirm => 'Are you sure?', :method => :delete
+        = link_to 'Destroy', [@asset, option], :confirm => 'Are you sure?', :method => :delete
 
 %br
 
-= link_to 'New Option', new_option_path
+= link_to 'New Option', new_asset_option_path
