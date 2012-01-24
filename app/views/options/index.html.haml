@@ -7,7 +7,7 @@
 
   - @options.each do |option|
     %tr{:class => cycle('odd', 'even')} 
-      %td= link_to option.to_s, asset_option_path(@asset, option)
+      %td= link_to option.to_s, asset_option_option_values_path(@asset, option)
       %td
         = link_to 'Edit', edit_asset_option_path(@asset, option)
         |

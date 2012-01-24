@@ -1,4 +1,4 @@
--title "Option Values"
+- title @option.to_s
 
 %table
   %tr.header
@@ -16,3 +16,7 @@
 %br
 
 = link_to 'New Option value', new_asset_option_option_value_path
+\|
+= link_to 'Edit Option', edit_asset_option_path(@asset, @option)
+\|
+= link_to 'Back', asset_options_path(@asset)

@@ -31,7 +31,7 @@ class OptionValuesController < ApplicationController
 
     respond_to do |format|
       if @option_value.save
-        format.html { redirect_to [@asset, @option], notice: 'Option value was successfully created.' }
+        format.html { redirect_to asset_option_option_values_url(@asset, @option), notice: 'Option value was successfully created.' }
         format.json { render json: @option_value, status: :created, location: @option_value }
       else
         format.html { render action: "new" }
@@ -47,7 +47,7 @@ class OptionValuesController < ApplicationController
     @option_value.destroy
 
     respond_to do |format|
-      format.html { redirect_to [@asset, @option] }
+      format.html { redirect_to asset_option_option_values_url(@asset, @option) }
       format.json { head :no_content }
     end
   end
