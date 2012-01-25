@@ -1,0 +1,20 @@
+- title "Listing Volatilities"
+
+%table
+  %tr.header
+    %th Name
+    %th Note
+    %th
+
+  - @volatilities.each do |volatility|
+    %tr{:class => cycle('odd', 'even')} 
+      %td= link_to volatility.name, volatility_vol_values_path(volatility)
+      %td= volatility.note
+      %td
+        = link_to 'Edit', edit_volatility_path(volatility)
+        |
+        = link_to 'Destroy', volatility, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Volatility', new_volatility_path

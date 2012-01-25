@@ -1,0 +1,11 @@
+- title @volatility.name
+
+%p
+  %b Note:
+  = @volatility.note
+
+= link_to 'Values', volatility_vol_values_path(@volatility)
+\|
+= link_to 'Edit', edit_volatility_path(@volatility)
+\|
+= link_to 'Back', volatilities_path

@@ -1,0 +1,19 @@
+- title "#{@volatility.name} Values"
+
+%table
+  %tr.header
+    %th Value
+    %th Timestamp
+    %th
+
+  - @vol_values.each do |vol_value|
+    %tr{:class => cycle('odd', 'even')} 
+      %td= real_value(vol_value.value)
+      %td= vol_value.timestamp
+      %td= link_to 'Destroy', [@volatility, vol_value], :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Value', new_volatility_vol_value_path
+\|
+= link_to 'All Volatilities', volatilities_path

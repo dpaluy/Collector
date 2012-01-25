@@ -9,6 +9,9 @@ class Option
   embedded_in :asset
   embeds_many :option_values
   
+  validates_presence_of :expiration
+  validates_presence_of :strike
+  
   def is_call?
     option_type == true  
   end

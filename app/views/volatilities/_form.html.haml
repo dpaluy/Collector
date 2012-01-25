@@ -1,0 +1,9 @@
+= simple_form_for(@volatility) do |f|
+  = f.error_notification
+
+  .inputs
+    = f.input :name
+    = f.input :note
+
+  .actions
+    = f.button :submit

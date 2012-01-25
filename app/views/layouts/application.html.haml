@@ -10,8 +10,13 @@
     = csrf_meta_tag
     = yield(:head)
 
-  %body
+  %body          
     #container
+      #header
+        %nav
+          %ul.hmenu
+            = render 'shared/navigation'
+    
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
 
