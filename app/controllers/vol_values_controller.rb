@@ -5,7 +5,7 @@ class VolValuesController < ApplicationController
   # GET /vol_values
   # GET /vol_values.json
   def index
-    @vol_values = @volatility.vol_values.all
+    @vol_values = @volatility.vol_values.order(:timestamp).page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

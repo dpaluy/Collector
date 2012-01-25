@@ -16,6 +16,7 @@ gem "mongoid", "~> 2.4"
 gem "mongoid_dynamic_finder"
 gem "bson_ext", "~> 1.5"
 
+gem 'kaminari'
 gem 'money'
 gem 'date_validator'
 gem "simple_form"

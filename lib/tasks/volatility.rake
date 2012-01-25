@@ -21,6 +21,10 @@ task :load_vix do
     params = ActiveSupport::JSON.encode(:timestamp => the_date, :value => value)
     request.body = params
     response = http.request(request)
-    puts "Error adding: #{params}" if response.code != 200
+    if response.code != '200'
+      puts "Error adding: #{params}" 
+    else
+      puts "Added: #{params}" 
+    end
   end
 end
