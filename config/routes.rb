@@ -1,5 +1,7 @@
 Collector::Application.routes.draw do
 
+  resources :expiration_dates
+
   resources :volatilities do
     resources :vol_values
   end

@@ -1,0 +1,9 @@
+= simple_form_for(@expiration_date) do |f|
+  = f.error_notification
+
+  .inputs
+    = f.input :asset_id
+    = f.input :date, :as => :date
+
+  .actions
+    = f.button :submit

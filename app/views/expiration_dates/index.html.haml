@@ -1,0 +1,26 @@
+- title "Expiration dates"
+
+= form_tag expiration_dates_path, :method => 'get' do
+  %p
+    Asset: 
+    = text_field_tag 'search', params[:search]
+    = submit_tag 'Search' 
+
+%table
+  %tr.header
+    %th Asset
+    %th Date
+    %th
+
+  - @expiration_dates.each do |expiration_date|
+    %tr{:class => cycle('odd', 'even')}
+      %td= expiration_date.asset_id
+      %td
+        = expiration_date.date.to_s(:expiration)
+        |      
+        = expiration_date.date
+      %td= link_to 'Destroy', expiration_date, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Expiration date', new_expiration_date_path
