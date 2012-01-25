@@ -1,5 +1,8 @@
 - title "#{@asset.name} Values"
 
+= paginate @values
+%br
+
 %table
   %tr.header
     %th Price
@@ -13,6 +16,8 @@
       %td= value.timestamp
       %td= link_to 'Destroy', [@asset, value], :confirm => 'Are you sure?', :method => :delete
 
+%br
+= paginate @values
 %br
 
 = link_to 'New Value', new_asset_value_path

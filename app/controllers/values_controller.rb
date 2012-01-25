@@ -5,11 +5,11 @@ class ValuesController < ApplicationController
   # GET /values
   # GET /values.json
   def index
-    @values = @asset.values.all
+    @values = @asset.values.order(:timestamp).page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @values }
+      format.json { render json: @asset.values.order(:timestamp) }
     end
   end
 

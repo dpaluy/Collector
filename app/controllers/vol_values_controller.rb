@@ -9,7 +9,7 @@ class VolValuesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @vol_values }
+      format.json { render json: @volatility.vol_values.order(:timestamp) }
     end
   end
 
