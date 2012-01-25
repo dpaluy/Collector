@@ -6,6 +6,7 @@ class ExpirationDate
   field :date, :type => Date
   
   validates_uniqueness_of :asset_id, :scope => :date
+  validates_presence_of :asset_id
   
   def self.search(search)
     if search.blank?

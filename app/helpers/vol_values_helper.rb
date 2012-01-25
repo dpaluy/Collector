@@ -1,6 +1,7 @@
 module VolValuesHelper
 
   def real_value(val)
-    number_with_delimiter(val / 100)
+    result = val.to_f / 100
+    number_with_delimiter(result)
   end
 end
