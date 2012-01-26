@@ -1,5 +1,8 @@
 - title @option.to_s
 
+= paginate @option_values
+%br
+
 %table
   %tr.header
     %th Price
@@ -13,6 +16,8 @@
       %td= option_value.timestamp
       %td= link_to 'Destroy', [@asset, @option, option_value], :confirm => 'Are you sure?', :method => :delete
 
+%br
+= paginate @option_values
 %br
 
 = link_to 'New Option value', new_asset_option_option_value_path

@@ -11,6 +11,7 @@ class Option
   
   validates_presence_of :expiration
   validates_presence_of :strike
+  validates_uniqueness_of :strike, :scope => :expiration
   
   def is_call?
     option_type == true  

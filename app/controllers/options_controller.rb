@@ -5,12 +5,11 @@ class OptionsController < ApplicationController
   # GET /options
   # GET /options.json
   def index
-    
-    @options = @asset.options
+    @options = @asset.options.order(:expiration, :strike).page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @options }
+      format.json { render json: @asset.options.order(:expiration, :strike) }
     end
   end
 

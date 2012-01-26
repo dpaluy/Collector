@@ -1,4 +1,7 @@
-%h1 Listing options
+- title "#{@asset.name} options"
+
+= paginate @options
+%br
 
 %table
   %tr.header
@@ -13,6 +16,8 @@
         |
         = link_to 'Destroy', [@asset, option], :confirm => 'Are you sure?', :method => :delete
 
+%br
+= paginate @options
 %br
 
 = link_to 'New Option', new_asset_option_path
