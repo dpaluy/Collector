@@ -5,11 +5,11 @@ class OptionValuesController < ApplicationController
   # GET /option_values
   # GET /option_values.json
   def index
-    @option_values = @option.option_values.order(:timestamp).page params[:page]
+    @option_values = @option.option_values.asc(:timestamp).page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @option.option_values.order(:timestamp) }
+      format.json { render json: @option.option_values.asc(:timestamp) }
     end
   end
 

@@ -5,11 +5,11 @@ class VolValuesController < ApplicationController
   # GET /vol_values
   # GET /vol_values.json
   def index
-    @vol_values = @volatility.vol_values.order(:timestamp).page params[:page]
+    @vol_values = @volatility.vol_values.asc(:timestamp).page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @volatility.vol_values.order(:timestamp) }
+      format.json { render json: @volatility.vol_values.asc(:timestamp) }
     end
   end
 
